@@ -1,5 +1,6 @@
-# update .zshrc
+# zshrc config
 alias reload='source ~/.zshrc'
+alias zshconfig='vim ~/.zshrc'
 
 # Config aliases
 alias aliases='vim ~/.zsh_aliases'
