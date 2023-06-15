@@ -3,7 +3,7 @@ alias reload='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
 
 # Config aliases
-alias aliases='vim ~/.zsh_aliases'
+alias aliases='vim ~/.aliases.zsh'
 
 # cat alternative
 alias cat='bat'
