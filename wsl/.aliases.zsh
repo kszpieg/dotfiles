@@ -2,11 +2,15 @@
 alias reload='source ~/.zshrc'
 alias zshconfig='vim ~/.zshrc'
 
+# starship config
+alias shipcfg='vim ~/.config/starship.toml'
+
 # Config aliases
 alias aliases='vim ~/.aliases.zsh'
 
 # cat alternative
 alias cat='bat'
+alias pcat='bat --style=plain'
 
 # ls alternative
 alias ls='lsd -l'
