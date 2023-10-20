@@ -21,43 +21,59 @@ disabled = false
 show_always = true
 
 [git_status]
-conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count} "
-behind = "🐢 ×${count} "
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
-untracked = "🛤️ ×${count} "
-stashed = "📦 "
-modified = "📝 ×${count} "
-staged = "🗃️ ×${count} "
-renamed = "📛 ×${count} "
-deleted = "🗑️ ×${count} "
-style = "bright-white"
-format = "$all_status$ahead_behind"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+stashed = "[${count}*](green)" 
+modified = "[${count}+](yellow)" 
+deleted =  "[${count}-](red)" 
+conflicted =  "[${count}~](red)" 
+ahead = "⇡${count}"
+behind = "⇣${count}"
+untracked = "[${count}?](blue)" 
+staged = "[${count}+](green)" 
+
+[git_state]
+style =	"bold red"
+format = "[$state( $progress_current/$progress_total) ]($style)"
+rebase = "rebase"
+merge = "merge"	
+revert = "revert"	
+cherry_pick = "cherry"
+bisect = "bisect"	
+am = "am"	
+am_or_rebase = "am/rebase"
 
 # Nerd Font Symbols Preset
 [aws]
 symbol = "  "
+format = "[$symbol$version] "
 
 [buf]
 symbol = " "
+format = "[$symbol$version] "
 
 [c]
 symbol = " "
+format = "[$symbol$version] "
 
 [conda]
 symbol = " "
+format = "[$symbol$version] "
 
 [dart]
 symbol = " "
+format = "[$symbol$version] "
 
 [docker_context]
 symbol = " "
+format = "[$symbol$version] "
 
 [elixir]
 symbol = " "
+format = "[$symbol$version] "
 
 [elm]
 symbol = " "
+format = "[$symbol$version] "
 
 [fossil_branch]
 symbol = " "
@@ -67,12 +83,14 @@ symbol = " "
 
 [golang]
 symbol = " "
+format = "[$symbol$version] "
 
 [guix_shell]
 symbol = " "
 
 [haskell]
 symbol = " "
+format = "[$symbol$version] "
 
 [haxe]
 symbol = "⌘ "
@@ -85,12 +103,15 @@ ssh_symbol = " "
 
 [java]
 symbol = " "
+format = "[$symbol$version] "
 
 [julia]
 symbol = " "
+format = "[$symbol$version] "
 
 [lua]
 symbol = " "
+format = "[$symbol$version] "
 
 [memory_usage]
 symbol = "󰍛 "
@@ -106,6 +127,7 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+format = "[$symbol$version] "
 
 [os.symbols]
 Alpaquita = " "
@@ -151,23 +173,25 @@ Windows = "󰍲 "
 [package]
 symbol = "󰏗 "
 
-[pijul_channel]
-symbol = "🪺 "
-
 [python]
 symbol = " "
+format = "[$symbol$version] "
 
 [rlang]
 symbol = "󰟔 "
+format = "[$symbol$version] "
 
 [ruby]
 symbol = " "
+format = "[$symbol$version] "
 
 [rust]
 symbol = " "
+format = "[$symbol$version] "
 
 [scala]
 symbol = " "
+format = "[$symbol$version] "
 
 [spack]
 symbol = "🅢 "
