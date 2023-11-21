@@ -8,6 +8,15 @@
             "keys": "ctrl+shift+f"
         },
         {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
             "command": "paste",
             "keys": "ctrl+v"
         },
@@ -18,17 +27,9 @@
                 "singleLine": false
             },
             "keys": "ctrl+c"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
         }
     ],
+    "alwaysShowNotificationIcon": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
@@ -42,7 +43,17 @@
     ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "colorScheme": "Campbell",
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "face": "FiraCode Nerd Font",
+                "size": 10.0
+            },
+            "opacity": 95
+        },
         "list": 
         [
             {
@@ -53,17 +64,19 @@
                 "name": "Command Prompt"
             },
             {
-                "font": 
-                {
-                    "face": "FiraCode Nerd Font",
-                    "size": 10.0
-                },
                 "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
                 "hidden": false,
                 "icon": "%userprofile%/win-term/icons/debian-16.png",
-                "name": "Debian",
+                "name": "Debian WSL",
                 "source": "Windows.Terminal.Wsl",
-                "tabTitle": "Debian"
+                "tabTitle": "Debian WSL",
+                "suppressApplicationTitle": true
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "icon": "%userprofile%/win-term/icons/ps-16.png",
+                "name": "Windows PowerShell"
             },
             {
                 "colorScheme": "Campbell",
@@ -76,12 +89,6 @@
                 "icon": "%userprofile%/win-term/icons/linux-16.png",
                 "name": "MIKR.US-f413",
                 "tabTitle": "MIKRUS SSH"
-            },
-            {
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "icon": "%userprofile%/win-term/icons/ps-16.png",
-                "name": "Windows PowerShell"
             }
         ]
     },
@@ -295,49 +302,5 @@
             "yellow": "#808000"
         }
     ],
-    "themes": 
-    [
-        {
-            "name": "legacyDark",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "dark",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacyLight",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "light",
-                "useMica": false
-            }
-        },
-        {
-            "name": "legacySystem",
-            "tab": 
-            {
-                "background": null,
-                "showCloseButton": "always",
-                "unfocusedBackground": null
-            },
-            "window": 
-            {
-                "applicationTheme": "system",
-                "useMica": false
-            }
-        }
-    ]
+    "themes": []
 }
