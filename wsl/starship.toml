@@ -101,67 +101,59 @@ deleted = '  '
 # Other symbols/icons
 [aws]
 symbol = '  '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #FF9900) '
 
 [c]
 symbol = ' '
-format = 'via [$symbol$version] '
-
-[conda]
-symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #659AD2) '
 
 [dart]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #0075BA) '
 
 [docker_context]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #1D63ED) '
 
 [golang]
 symbol = ' '
-format = 'via [$symbol$version] '
-
-[haskell]
-symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #29BEB0) '
 
 [java]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #F8981D) '
 
 [kubernetes]
 symbol = '☸ '
-format = 'via [$symbol$context\($namespace\)](bold purple) '
+format = 'via [$symbol$context\($namespace\)](bold #326DE6) '
 disabled = false
 
 [lua]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold white) '
 
 [memory_usage]
 symbol = '󰍛 '
 
 [nodejs]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #3C873A) '
 
 [package]
 symbol = '󰏗 '
 
 [python]
 symbol = ' '
-format = 'via [$symbol$version]'
+format = 'via [$symbol$version](bold #FFD343) '
 
 [ruby]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #841B2D) '
 
 [rust]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #CE412B) '
 
 [scala]
 symbol = ' '
-format = 'via [$symbol$version] '
+format = 'via [$symbol$version](bold #DE3423) '
