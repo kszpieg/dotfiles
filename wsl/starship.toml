@@ -8,8 +8,8 @@ format = """\
 $all[╰─](238)$character"""
 
 [character]
-success_symbol = "[ ](bold green)"
-error_symbol = "[✗ ](bold red)"
+success_symbol = '[ ](bold green)'
+error_symbol = '[✗ ](bold red)'
 
 # ---
 
@@ -18,34 +18,34 @@ format = '[$symbol](bold white) '
 disabled = false
 
 [os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mint = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
+Alpine = ' '
+Amazon = ' '
+Android = ' '
+Arch = ' '
+Artix = ' '
+CentOS = ' '
+Debian = ' '
+EndeavourOS = ' '
+Fedora = ' '
+FreeBSD = ' '
+Garuda = '󰛓 '
+Gentoo = ' '
+Linux = ' '
+Mabox = ' '
+Macos = ' '
+Manjaro = ' '
+Mint = ' '
+NixOS = ' '
+OpenBSD = '󰈺 '
+openSUSE = ' '
+OracleLinux = '󰌷 '
+Pop = ' '
+Raspbian = ' '
+Redhat = ' '
+SUSE = ' '
+Ubuntu = ' '
+Unknown = ' '
+Windows = '󰍲 '
 
 # ---
 
@@ -69,14 +69,14 @@ show_always = true
 
 # Shows the hostname
 [hostname]
-ssh_symbol = " "
+ssh_symbol = ' '
 ssh_only = false
 format = 'on [$hostname](bold yellow) '
 disabled = false
 
 # Shows current git branch
 [git_branch]
-symbol = " "
+symbol = ' '
 format = 'via [$symbol$branch]($style)'
 # truncation_length = 4
 truncation_symbol = '…/'
@@ -100,68 +100,68 @@ deleted = '  '
 
 # Other symbols/icons
 [aws]
-symbol = "  "
-format = "[via $symbol$version] "
+symbol = '  '
+format = 'via [$symbol$version] '
 
 [c]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [conda]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [dart]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [docker_context]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [golang]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [haskell]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [java]
-symbol = " "
-format = "[$symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [kubernetes]
-symbol = "☸ "
+symbol = '☸ '
 format = 'via [$symbol$context\($namespace\)](bold purple) '
 disabled = false
 
 [lua]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [memory_usage]
-symbol = "󰍛 "
+symbol = '󰍛 '
 
 [nodejs]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [package]
-symbol = "󰏗 "
+symbol = '󰏗 '
 
 [python]
-symbol = " "
-format = "[via $symbol$version]"
+symbol = ' '
+format = 'via [$symbol$version]'
 
 [ruby]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [rust]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
 
 [scala]
-symbol = " "
-format = "[via $symbol$version] "
+symbol = ' '
+format = 'via [$symbol$version] '
