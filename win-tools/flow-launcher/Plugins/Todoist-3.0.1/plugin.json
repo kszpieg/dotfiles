@@ -1,0 +1,12 @@
+{
+    "ID": "F71F6EE367D34BAFB681A9287ACF59EB",
+    "ActionKeyword": "t",
+    "Name": "Todoist",
+    "Description": "A plugin to add tasks to todoist.",
+    "Author":"DanielBV",
+    "Version":"3.0.1",
+    "Language": "csharp",
+    "Website": "https://github.com/jjw24/Wox.Plugin.Todoist",
+    "ExecuteFileName": "Wox.Plugin.Todoist.dll",
+    "IcoPath":"images\\icon.png"
+}

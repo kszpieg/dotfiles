@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: python-raindropio
+Version: 0.0.4
+Summary: UNKNOWN
+Home-page: https://github.com/atsuoishimoto/python-raindropio
+Author: Atsuo Ishimoto
+License: MIT
+Project-URL: Source, https://github.com/atsuoishimoto/python-raindropio
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests-oauthlib
+Requires-Dist: python-dateutil
+Requires-Dist: jashin (>=0.0.6)
+Requires-Dist: python-dotenv
+Provides-Extra: dev
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: autoflake ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+
+# python-raindropio
+
+Python wrapper for [Raindrop.io API](https://developer.raindrop.io/).
+
+This library is in the early stage of development.
+
+## Requirements
+
+
+- Requires Python 3.7 or later.
+
+
+## Install
+
+pip3 install python-raindropio
+
+
+## Usage
+
+You must register your application at https://app.raindrop.io/settings/integrations.
+In the application page, create test token to run following samples.
+
+* Create collection
+
+```python
+
+from raindropio import API, Collection
+api = API(raidrop_access_token)
+
+c = Collection.create(api, title="Sample collection")
+print(c.title)
+```
+
+
+* Search bookmarks from Unsorted collection.
+
+```python
+
+from raindropio import API, CollectionRef, Raindrop
+api = API(raidrop_access_token)
+
+page = 0
+while (items:=Raindrop.search(api, collection=CollectionRef.Unsorted, page=page)):
+    print(page)
+    for item in items:
+        print(item.title)
+    page += 1
+```
+
+## License
+
+Copyright 2020 Atsuo Ishimoto
+
+See LICENSE for detail.
+
+

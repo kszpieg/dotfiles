@@ -1,0 +1,9 @@
+# espanso configuration file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# Toggle key for disabling Espanso
+toggle_key: RIGHT_SHIFT
+
+# Shortcut for search tab
+search_shortcut: ALT+SHIFT+SPACE

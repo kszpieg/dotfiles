@@ -1,0 +1,3 @@
+flowlauncher
+pyperclip
+python-dotenv
