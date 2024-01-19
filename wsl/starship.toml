@@ -4,7 +4,7 @@
 add_newline = true
 command_timeout = 1000
 format = """\
-[╭╴](238)$os\
+[╭╴](238)$os$username$hostname$time$directory\
 $all[╰─](238)$character"""
 
 [character]
@@ -46,6 +46,11 @@ SUSE = ' '
 Ubuntu = ' '
 Unknown = ' '
 Windows = '󰍲 '
+
+[time]
+disabled = false
+format = ' [$time]($style) '
+time_format = '%R'
 
 # ---
 
