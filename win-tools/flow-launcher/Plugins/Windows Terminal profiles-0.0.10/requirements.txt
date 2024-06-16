@@ -1,2 +1,0 @@
-flowlauncher
-#git+https://github.com/garulf/flox.git
