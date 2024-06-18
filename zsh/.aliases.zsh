@@ -3,7 +3,7 @@ alias reload="source $HOME/.zshrc"
 alias zshconfig="vim $HOME/.zshrc"
 
 # starship config
-alias shipcfg="vim $HOME/starship.toml"
+alias shipcfg="vim $HOME/.config/starship.toml"
 
 # Config aliases
 alias aliases="vim $HOME/.aliases.zsh"
