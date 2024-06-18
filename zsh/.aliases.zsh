@@ -1,15 +1,12 @@
-# config path
-export MY_CFG_PATH=$HOME/.config/
-
 # zshrc config
-alias reload="source $MY_CFG_PATH/zsh/.zshrc"
-alias zshconfig="vim $MY_CFG_PATH/zsh/.zshrc"
+alias reload="source $HOME/.zshrc"
+alias zshconfig="vim $HOME/.zshrc"
 
 # starship config
-alias shipcfg="vim $MY_CFG_PATH/starship.toml"
+alias shipcfg="vim $HOME/starship.toml"
 
 # Config aliases
-alias aliases="vim $MY_CFG_PATH/zsh/.aliases.zsh"
+alias aliases="vim $HOME/.aliases.zsh"
 
 # cat alternative
 alias cat='bat'
