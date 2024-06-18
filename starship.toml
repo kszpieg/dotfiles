@@ -2,7 +2,7 @@
 
 # Change the default prompt format
 add_newline = true
-command_timeout = 1000
+command_timeout = 10000
 format = """\
 [╭╴](238)$os$username$hostname$time$directory\
 $all[╰─](238)$character"""
