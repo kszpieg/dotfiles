@@ -4,3 +4,9 @@
 [core]
 	editor = vim
 	autocrlf = input
+[commit]
+	verbose = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	algorithm = histogram
