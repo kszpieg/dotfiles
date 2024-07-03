@@ -29,6 +29,9 @@ alias ......='cd ../../../../..'
 # jump to work directory
 alias gdir='cd /mnt/e/gitdir'
 
+# jump to dotfiles
+alias dotfiles='cd /mnt/e/gitdir/dotfiles'
+
 # weather
 alias wroclaw='curl wttr.in/wroclaw'
 alias przemysl='curl wttr.in/przemysl'
