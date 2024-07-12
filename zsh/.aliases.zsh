@@ -26,6 +26,9 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+# clear
+alias cl='clear'
+
 # jump to work directory
 alias gdir='cd /mnt/e/gitdir'
 
