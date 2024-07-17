@@ -87,6 +87,15 @@ fi
 echo "=====checking for oh-my-zsh...====="
 if test ! "$(which omz)"; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # clone missing oh-my-zsh plugins
+    ZSH_AUTOSUGGESTIONS_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    ZSH_SYNTAX_HIGHLIGHTING_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    if [ ! -d "$ZSH_AUTOSUGGESTIONS_PATH" ]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AUTOSUGGESTIONS_PATH"
+    fi
+    if [ ! -d "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
+    fi
 fi
 echo DONE
 
