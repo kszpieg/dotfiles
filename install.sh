@@ -4,6 +4,7 @@ DIR=$(realpath "$(dirname "$0")")
 
 function create_ln() {
     FILE=$(basename "$1")
+    PATH_TO_CHECK=$(dirname "$1")
 
     if [ "$2" = "-nf" ]; then
         echo -ne "creating symlink of $FILE to $HOME/$FILE  "
@@ -11,6 +12,10 @@ function create_ln() {
         echo DONE
     else
         echo -ne "creating symlink of $1 to $HOME/$1  "
+        if [ ! -d "$HOME/$PATH_TO_CHECK" ]; then
+            echo "$PATH_TO_CHECK" not exists, creating...
+            mkdir -p "$HOME/$PATH_TO_CHECK"
+        fi
         ln -sfn "$DIR/$1" "$HOME/$1"
         echo DONE
     fi
@@ -64,11 +69,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     # === App section
     echo "=====installing linux apps...====="
 
-    # install batcat
-    sudo apt install bat -y
-
-    # install htop
-    sudo apt install htop -y
+    # install vim, batcat and htop
+    sudo apt install vim bat htop -y
 fi
 
 # check for oh-my-zsh and install if it's not found
