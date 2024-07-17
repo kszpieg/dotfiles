@@ -77,6 +77,10 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
     # install vim, batcat and htop
     sudo apt install vim bat htop -y
+
+    # prepare ./local/bin/bat according to documentation of bat
+    mkdir -p ~/.local/bin
+    ln -s /usr/bin/batcat ~/.local/bin/bat
 fi
 
 # check for oh-my-zsh and install if it's not found
@@ -111,7 +115,7 @@ create_ln .config/starship.toml
 
 echo "=====almost done...====="
 
-# change shell to zsh
+# run zsh for oh-my-zsh loading purposes
 zsh
 
 # load zsh config
