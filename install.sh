@@ -111,6 +111,9 @@ create_ln .config/starship.toml
 
 echo "=====almost done...====="
 
+# change shell to zsh
+chsh -s "$(which zsh)"
+
 # load zsh config
 source "$HOME/.zshrc"
 

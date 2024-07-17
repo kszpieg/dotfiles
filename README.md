@@ -5,7 +5,7 @@ git clone git@github.com:kszpieg/dotfiles.git ~/.dotfiles
 ```
 2. Run `install.sh` bash script:
 ```
-cd ~/.dotfiles && ./install.sh
+cd ~/.dotfiles && chmod +x install.sh && ./install.sh
 ```
 3. Enjoy!
    
