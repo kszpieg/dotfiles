@@ -44,7 +44,13 @@ fi
 # check for homebrew and install if it's not found
 echo "=====checking for homebrew...====="
 if test ! "$(which brew)"; then
+    if [ "$OSTYPE" = "linux-gnu" ]; then
+    # install brew dependencies
+    echo "=====installing brew dependencies... please wait...====="
+    sudo apt install build-essential -y
+    fi
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 echo DONE
 
