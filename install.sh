@@ -49,7 +49,7 @@ if test ! "$(which brew)"; then
     echo "=====installing brew dependencies... please wait...====="
     sudo apt install build-essential -y
     fi
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 echo DONE
@@ -112,7 +112,7 @@ create_ln .config/starship.toml
 echo "=====almost done...====="
 
 # change shell to zsh
-chsh -s "$(which zsh)"
+zsh
 
 # load zsh config
 source "$HOME/.zshrc"
