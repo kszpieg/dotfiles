@@ -67,7 +67,7 @@ fi
 # check for oh-my-zsh and install if it's not found
 echo "=====checking for oh-my-zsh...====="
 if test ! "$(which omz)"; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     # clone missing oh-my-zsh plugins
     ZSH_AUTOSUGGESTIONS_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     ZSH_SYNTAX_HIGHLIGHTING_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
@@ -83,7 +83,7 @@ echo DONE
 # check for starship and install if it's not found
 echo "=====checking for starship...====="
 if test ! "$(which starship)"; then
-    curl -sS https://starship.rs/install.sh | sh
+    sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
 fi
 echo DONE
 
