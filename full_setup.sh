@@ -1,25 +1,6 @@
 #!/usr/bin/env bash
 
-DIR=$(realpath "$(dirname "$0")")
-
-function create_ln() {
-    FILE=$(basename "$1")
-    PATH_TO_CHECK=$(dirname "$1")
-
-    if [ "$2" = "-nf" ]; then
-        echo -ne "creating symlink of $FILE to $HOME/$FILE  "
-        ln -sfn "$DIR/$1" "$HOME/$FILE"
-        echo DONE
-    else
-        echo -ne "creating symlink of $1 to $HOME/$1  "
-        if [ ! -d "$HOME/$PATH_TO_CHECK" ]; then
-            echo "$PATH_TO_CHECK" not exists, creating...
-            mkdir -p "$HOME/$PATH_TO_CHECK"
-        fi
-        ln -sfn "$DIR/$1" "$HOME/$1"
-        echo DONE
-    fi
-}
+source "$(dirname "$0")/functions/sh/symlinks.sh"
 
 # === Base setup section ===
 echo "=====setting up your computer... please wait...====="
@@ -113,12 +94,7 @@ echo "=====creating symlinks...====="
 rm -rf "$HOME/.zshrc"
 
 # create symlinks for all configs
-create_ln zsh/.zshrc -nf
-create_ln zsh/.aliases.zsh -nf
-create_ln git/.gitconfig -nf
-create_ln vim/.vimrc -nf
-create_ln .config/fastfetch/config.jsonc
-create_ln .config/starship.toml
+source "$(dirname "$0")/configs.sh"
 
 # === Finish section ===
 
