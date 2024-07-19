@@ -110,7 +110,6 @@ echo "=====almost done...====="
 
 # run zsh for oh-my-zsh loading purposes
 echo "=====running zsh shell====="
-zsh
 chsh -s "$(which zsh)"
 
 # load zsh config
