@@ -106,14 +106,5 @@ source "$(dirname "$0")/configs.sh"
 
 # === Finish section ===
 
-echo "=====almost done...====="
-
-# run zsh for oh-my-zsh loading purposes
-echo "=====running zsh shell====="
-chsh -s "$(which zsh)"
-
-# load zsh config
-echo "Loading .zshrc..."
-source "$HOME/.zshrc"
-
-echo "=====your machine is settled up, enjoy!====="
+echo "=====almost done... need to reboot====="
+sudo reboot
