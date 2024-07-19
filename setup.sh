@@ -104,6 +104,7 @@ echo "=====almost done...====="
 zsh
 
 # load zsh config
+echo "Loading .zshrc..."
 source "$HOME/.zshrc"
 
 echo "=====your machine is settled up, enjoy!====="
