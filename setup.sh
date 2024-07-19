@@ -32,6 +32,8 @@ if test ! "$(which brew)"; then
     fi
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+else
+    echo "===homebrew is installed already==="
 fi
 echo DONE
 
@@ -50,6 +52,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     echo "=====checking for zsh...====="
     if test ! "$(which zsh)"; then
         sudo apt install zsh -y
+    else
+        echo "===zsh is installed already==="
     fi
     echo DONE
 
@@ -77,6 +81,8 @@ if test ! "$(which omz)"; then
     if [ ! -d "$ZSH_SYNTAX_HIGHLIGHTING_PATH" ]; then
         git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_SYNTAX_HIGHLIGHTING_PATH"
     fi
+else
+    echo "===oh-my-zsh is installed already==="
 fi
 echo DONE
 
@@ -84,6 +90,8 @@ echo DONE
 echo "=====checking for starship...====="
 if test ! "$(which starship)"; then
     sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
+else
+    echo "===starfish is installed already==="
 fi
 echo DONE
 
@@ -101,7 +109,9 @@ source "$(dirname "$0")/configs.sh"
 echo "=====almost done...====="
 
 # run zsh for oh-my-zsh loading purposes
+echo "=====running zsh shell====="
 zsh
+chsh -s "$(which zsh)"
 
 # load zsh config
 echo "Loading .zshrc..."

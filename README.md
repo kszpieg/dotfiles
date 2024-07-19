@@ -1,7 +1,7 @@
 # Installation
 1. Clone the repository into `.dotfiles`:
 ```
-git clone git@github.com:kszpieg/dotfiles.git ~/.dotfiles
+git clone git@github.com:kszpieg/dotfiles.git .dotfiles
 ```
 2. Run proper bash script:
 
