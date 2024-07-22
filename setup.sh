@@ -6,16 +6,25 @@ source "$(dirname "$0")/functions/sh/symlinks.sh"
 echo "=====setting up your computer... please wait...====="
 
 if [ "$OSTYPE" = "linux-gnu" ]; then
-    # run latest updates
-    echo "=====checking for updates... please wait...====="
-    sudo apt update -y && sudo apt upgrade -y
+    DISTRO_TYPE=$(lsb_release -is)
+    echo "=====setup for $DISTRO_TYPE====="
+elif [ "$OSTYPE" = "darwin" ]; then
+    echo "=====setup for MacOS====="
+fi
 
-    # check for curl and install if it's not found
-    echo "=====checking for curl...====="
-    if test ! "$(which curl)"; then
-        sudo apt install curl -y
+if [ "$OSTYPE" = "linux-gnu" ]; then
+    if [ "$DISTRO_TYPE" = "Debian" ] || [ "$DISTRO_TYPE" = "Ubuntu" ]; then
+        # run latest updates
+        echo "=====checking for updates... please wait...====="
+        sudo apt update -y && sudo apt upgrade -y
+
+        # check for curl and install if it's not found
+        echo "=====checking for curl...====="
+        if test ! "$(which curl)"; then
+            sudo apt install curl -y
+        fi
+        echo DONE
     fi
-    echo DONE
 elif [ "$OSTYPE" = "darwin" ]; then
     # run latest updates
     echo "=====checking for updates... please wait...====="
@@ -26,9 +35,11 @@ fi
 echo "=====checking for homebrew...====="
 if test ! "$(which brew)"; then
     if [ "$OSTYPE" = "linux-gnu" ]; then
-    # install brew dependencies
-    echo "=====installing brew dependencies... please wait...====="
-    sudo apt install build-essential -y
+        if [ "$DISTRO_TYPE" = "Debian" ] || [ "$DISTRO_TYPE" = "Ubuntu" ]; then
+            # install brew dependencies
+            echo "=====installing brew dependencies... please wait...====="
+            sudo apt install build-essential -y
+        fi
     fi
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -48,20 +59,22 @@ brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 if [ "$OSTYPE" = "linux-gnu" ]; then
-    # check for zsh and install if it's not found
-    echo "=====checking for zsh...====="
-    if test ! "$(which zsh)"; then
-        sudo apt install zsh -y
-    else
-        echo "===zsh is installed already==="
+    if [ "$DISTRO_TYPE" = "Debian" ] || [ "$DISTRO_TYPE" = "Ubuntu" ]; then
+        # check for zsh and install if it's not found
+        echo "=====checking for zsh...====="
+        if test ! "$(which zsh)"; then
+            sudo apt install zsh -y
+        else
+            echo "===zsh is installed already==="
+        fi
+        echo DONE
+
+        # === App section
+        echo "=====installing linux apps...====="
+
+        # install vim, batcat and htop
+        sudo apt install vim bat htop -y
     fi
-    echo DONE
-
-    # === App section
-    echo "=====installing linux apps...====="
-
-    # install vim, batcat and htop
-    sudo apt install vim bat htop -y
 
     # prepare ./local/bin/bat according to documentation of bat
     mkdir -p ~/.local/bin

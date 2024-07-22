@@ -1,8 +1,12 @@
 # Installation
 1. Clone the repository into `.dotfiles`:
-```
-git clone git@github.com:kszpieg/dotfiles.git .dotfiles
-```
+    ```
+    git clone git@github.com:kszpieg/dotfiles.git .dotfiles
+    ```
+    or use HTTPS variant:
+    ```
+    git clone https://github.com/kszpieg/dotfiles.git .dotfiles
+    ```
 2. Run proper bash script:
 
 - for full installation run `setup.sh` (it may require to provide sudo password during the process)
