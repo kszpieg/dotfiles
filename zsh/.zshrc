@@ -112,5 +112,8 @@ source $HOME/.aliases.zsh
 # Export functions from .local/bin to PATH
 export PATH=$PATH:$HOME/.local/bin
 
+# run homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # run starship.rs
 eval "$(starship init zsh)"

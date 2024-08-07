@@ -17,7 +17,7 @@ alias ls='lsd -l'
 alias lsa='lsd -la'
 
 # DNS tool - dog
-alias dns='dog'
+alias dns='doggo'
 
 # jump back n directories at a time
 alias ..='cd ..'

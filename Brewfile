@@ -2,7 +2,7 @@
 tap 'homebrew/bundle'
 
 # Binaries
-brew 'dog'
+brew 'doggo'
 brew 'fastfetch'
 brew 'lsd'
 brew 'tldr'
