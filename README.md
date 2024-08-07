@@ -18,6 +18,22 @@
     cd ~/.dotfiles && chmod +x configs.sh && ./configs.sh
     ```
 3. Enjoy!
+
+## Workaround for 'dog' installation issue
+
+Homebrew disabled `dog` package, so you need to run the following commands on Debian based distro to install it:
+```
+wget -qO - https://azlux.fr/repo.gpg.key | sudo apt-key add -
+```
+```
+echo "deb http://packages.azlux.fr/debian/ stable main" | sudo tee /etc/apt/sources.list.d/azlux.list
+```
+```
+sudo apt update
+```
+```
+sudo apt install dog -y
+```
    
 ## List of apps
 `TODO`
