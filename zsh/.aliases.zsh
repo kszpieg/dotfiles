@@ -14,7 +14,7 @@ alias pcat='bat --style=plain'
 
 # ls alternative
 alias ls='lsd -l'
-alias lsa='lsd -la'
+alias lsa='lsd -lA'
 
 # DNS tool - dog
 alias dns='doggo'
