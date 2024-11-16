@@ -29,6 +29,9 @@ alias ......='cd ../../../../..'
 # clear
 alias cl='clear'
 
+# python stuff
+alias python='python3'
+
 # jump to work directory
 alias gdir='cd /mnt/e/gitdir'
 
