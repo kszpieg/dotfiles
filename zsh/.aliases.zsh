@@ -36,6 +36,10 @@ alias python='python3'
 # jump to work directory
 alias gdir='cd /mnt/e/gitdir'
 
+# git aliases
+# update submodule recursively to latest remote commit
+alias gsur='gsu --remote --recursive'
+
 # jump to dotfiles
 alias dotfiles='cd /mnt/e/gitdir/dotfiles'
 
