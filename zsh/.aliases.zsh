@@ -13,8 +13,9 @@ alias cat='bat'
 alias pcat='bat --style=plain'
 
 # ls alternative
-alias ls='lsd -l'
-alias lsa='lsd -lA'
+alias ls='lsd --group-directories-first'
+alias lsl='lsd --group-directories-first -lh'
+alias lsa='lsd --group-directories-first -lhA'
 
 # DNS tool - dog
 alias dns='doggo'
