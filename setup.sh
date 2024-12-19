@@ -74,6 +74,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
         # install vim, batcat, fzf and htop
         sudo apt install vim bat fzf htop -y
+	# network tools
+	sudo apt install net-tools nmap -y
     fi
 
     # prepare ./local/bin/bat according to documentation of bat
