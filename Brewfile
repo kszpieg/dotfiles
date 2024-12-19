@@ -6,6 +6,7 @@ brew 'doggo'
 brew 'fastfetch'
 brew 'lsd'
 brew 'tldr'
+brew 'zoxide'
 brew 'vim' if OS.mac? # install only on Mac
 brew 'zsh' if OS.mac? # install only on Mac
 brew 'curl' if OS.mac? # install only on Mac
