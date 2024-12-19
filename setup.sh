@@ -72,8 +72,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
         # === App section
         echo "=====installing linux apps...====="
 
-        # install vim, batcat and htop
-        sudo apt install vim bat htop -y
+        # install vim, batcat, fzf and htop
+        sudo apt install vim bat fzf htop -y
     fi
 
     # prepare ./local/bin/bat according to documentation of bat
