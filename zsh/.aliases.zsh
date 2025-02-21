@@ -8,6 +8,12 @@ alias shipcfg="vim $HOME/.config/starship.toml"
 # Config aliases
 alias aliases="vim $HOME/.aliases.zsh"
 
+# debian based aliases
+alias i="sudo apt install"
+alias u="sudo apt update"
+alias uu="sudo apt upgrade"
+alias r="sudo apt remove"
+
 # cat alternative
 alias cat='bat'
 alias pcat='bat --style=plain'
@@ -26,9 +32,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-
-# clear
-alias cl='clear'
 
 # python stuff
 alias python='python3'
