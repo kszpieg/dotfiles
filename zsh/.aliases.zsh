@@ -37,7 +37,7 @@ alias ......="cd ../../../../.."
 alias cl="clear"
 
 # python stuff
-alias python="python3"
+alias py="python3"
 
 # jump to work directory
 alias gdir="cd /mnt/e/gitdir"
