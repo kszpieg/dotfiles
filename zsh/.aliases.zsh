@@ -22,6 +22,9 @@ alias pcat="bat --style=plain"
 alias ls="lsd --group-directories-first"
 alias lsl="lsd --group-directories-first -lh"
 alias lsa="lsd --group-directories-first -lhA"
+alias lst="lsd --group-directories-first -lh --tree --depth 2"
+alias lsta="lsd --group-directories-first -lhA --tree --depth 2"
+
 
 # DNS tool - dog
 alias dns="doggo"
