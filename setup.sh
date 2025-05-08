@@ -20,7 +20,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
         # check for curl and install if it's not found
         echo "=====checking for curl...====="
-        if test ! "$(which curl)"; then
+        if ! command -v curl >/dev/null 2>&1; then
             sudo apt install curl -y
         fi
         echo DONE
@@ -33,7 +33,7 @@ fi
 
 # check for homebrew and install if it's not found
 echo "=====checking for homebrew...====="
-if test ! "$(which brew)"; then
+if ! command -v brew >/dev/null 2>&1; then
     if [ "$OSTYPE" = "linux-gnu" ]; then
         if [ "$DISTRO_TYPE" = "Debian" ] || [ "$DISTRO_TYPE" = "Ubuntu" ]; then
             # install brew dependencies
@@ -42,7 +42,10 @@ if test ! "$(which brew)"; then
         fi
     fi
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+        sudo chown -R "$(whoami)" "$(brew --prefix)"
+    fi
+    eval "$($(command -v brew) shellenv)"
 else
     echo "===homebrew is installed already==="
 fi
@@ -55,14 +58,13 @@ echo "=====installing brew packages...====="
 brew update
 
 # install brew dependencies with bundle
-brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 if [ "$OSTYPE" = "linux-gnu" ]; then
     if [ "$DISTRO_TYPE" = "Debian" ] || [ "$DISTRO_TYPE" = "Ubuntu" ]; then
         # check for zsh and install if it's not found
         echo "=====checking for zsh...====="
-        if test ! "$(which zsh)"; then
+        if ! command -v zsh >/dev/null 2>&1; then
             sudo apt install zsh -y
         else
             echo "===zsh is installed already==="
@@ -85,7 +87,7 @@ fi
 
 # check for oh-my-zsh and install if it's not found
 echo "=====checking for oh-my-zsh...====="
-if test ! "$(which omz)"; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     # clone missing oh-my-zsh plugins
     ZSH_AUTOSUGGESTIONS_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
@@ -103,10 +105,10 @@ echo DONE
 
 # check for starship and install if it's not found
 echo "=====checking for starship...====="
-if test ! "$(which starship)"; then
+if ! command -v starship >/dev/null 2>&1; then
     sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
 else
-    echo "===starfish is installed already==="
+    echo "===starship is installed already==="
 fi
 echo DONE
 
@@ -122,4 +124,8 @@ source "$(dirname "$0")/configs.sh"
 # === Finish section ===
 
 echo "=====almost done... need to reboot====="
-sudo reboot
+
+read -p "Reboot now? [y/N]: " REBOOT_CONFIRM
+if [[ "$REBOOT_CONFIRM" =~ ^[Yy]$ ]]; then
+    sudo reboot
+fi
