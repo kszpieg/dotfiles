@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Try to locate fastfetch
+FASTFETCH_PATH="$(command -v fastfetch)"
+
+# If not found, try Homebrew default path
+if [ -z "$FASTFETCH_PATH" ]; then
+    if [ -x "/home/linuxbrew/.linuxbrew/bin/fastfetch" ]; then
+        export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+        FASTFETCH_PATH="/home/linuxbrew/.linuxbrew/bin/fastfetch"
+    fi
+fi
+
+USER_HOME=$(getent passwd "$(logname)" | cut -d: -f6)
+CONFIG_PATH="$USER_HOME/.config/fastfetch/config.jsonc"
+
+# Run fastfetch if it's now available
+if [ -n "$FASTFETCH_PATH" ]; then
+    fastfetch --config "$CONFIG_PATH"
+else
+    echo "fastfetch not found"
+fi
+
