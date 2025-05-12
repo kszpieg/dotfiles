@@ -11,7 +11,8 @@ if [ -z "$FASTFETCH_PATH" ]; then
     fi
 fi
 
-USER_HOME=$(getent passwd "$(logname)" | cut -d: -f6)
+REAL_USER=$(id -nu 1000 2>/dev/null || echo "$SUDO_USER")
+USER_HOME=$(getent passwd "$REAL_USER" | cut -d: -f6)
 CONFIG_PATH="$USER_HOME/.config/fastfetch/config.jsonc"
 
 # Run fastfetch if it's now available
@@ -20,4 +21,3 @@ if [ -n "$FASTFETCH_PATH" ]; then
 else
     echo "fastfetch not found"
 fi
-
