@@ -21,3 +21,4 @@ if [ -n "$FASTFETCH_PATH" ]; then
 else
     echo "fastfetch not found"
 fi
+
