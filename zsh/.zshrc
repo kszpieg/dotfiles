@@ -116,7 +116,7 @@ export PATH=$PATH:$HOME/.local/bin
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # run zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # run starship.rs
 eval "$(starship init zsh)"
