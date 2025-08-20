@@ -8,23 +8,34 @@ alias shipcfg="vim $HOME/.config/starship.toml"
 # Config aliases
 alias aliases="vim $HOME/.aliases.zsh"
 
-# debian based aliases
-alias i="sudo apt install"
-alias u="sudo apt update"
-alias uu="sudo apt upgrade"
-alias r="sudo apt remove"
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    case "$ID" in
+        fedora)
+            alias i="sudo dnf install"
+            alias u="sudo dnf update"
+            alias uu="sudo dnf upgrade"
+            alias r="sudo dnf remove"
+            ;;
+        ubuntu|debian)
+            alias i="sudo apt install"
+            alias u="sudo apt update"
+            alias uu="sudo apt upgrade"
+            alias r="sudo apt remove"
+            ;;
+    esac
+fi
 
 # cat alternative
 alias cat="bat"
 alias pcat="bat --style=plain"
 
 # ls alternative
-alias ls="lsd --group-directories-first"
-alias lsl="lsd --group-directories-first -lh"
-alias lsa="lsd --group-directories-first -lhA"
-alias lst="lsd --group-directories-first -lh --tree --depth 2"
-alias lsta="lsd --group-directories-first -lhA --tree --depth 2"
-
+alias ls="eza --icons --group-directories-first"
+alias lsl="eza --icons --group-directories-first -lgh"
+alias lsa="eza --icons --group-directories-first -lghA"
+alias lst="eza --icons --group-directories-first -lgh --tree --level 2"
+alias lsta="eza --icons --group-directories-first -lghA --tree --level 2"
 
 # DNS tool - dog
 alias dns="doggo"

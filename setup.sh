@@ -94,12 +94,12 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     # install vim, batcat, fzf and htop and network tools
     case "$DISTRO_TYPE" in
         ubuntu|debian)
-            sudo apt install vim bat fzf htop net-tools nmap -y
+            sudo apt install vim bat fzf net-tools nmap ripgrep fd-find procs -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
             ;;
         fedora)
-            sudo dnf install vim bat fzf htop net-tools nmap -y
+            sudo dnf install vim bat fzf net-tools nmap ripgrep fd-find procs -y
             ;;
     esac
 fi
@@ -110,8 +110,12 @@ echo "=====checking for oh-my-zsh...====="
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     # clone missing oh-my-zsh plugins
+    FZF_TAB_PATH="$HOME/.oh-my-zsh/custom/plugins/fzf-tab"
     ZSH_AUTOSUGGESTIONS_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     ZSH_SYNTAX_HIGHLIGHTING_PATH="$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    if [ ! -d "$FZF_TAB_PATH" ]; then
+        git clone https://github.com/Aloxaf/fzf-tab "$FZF_TAB_PATH"
+    fi
     if [ ! -d "$ZSH_AUTOSUGGESTIONS_PATH" ]; then
         git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_AUTOSUGGESTIONS_PATH"
     fi

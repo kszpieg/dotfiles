@@ -1,13 +1,23 @@
 # Binaries
+brew 'bandwhich'
+brew 'bottom'
 brew 'doggo'
+brew 'dust'
+brew 'eza'
 brew 'fastfetch'
-brew 'lsd'
+brew 'gping'
+brew 'hyperfine'
 brew 'tldr'
+brew 'tokei'
 brew 'zoxide'
-brew 'vim' if OS.mac? # install only on Mac
-brew 'zsh' if OS.mac? # install only on Mac
-brew 'curl' if OS.mac? # install only on Mac
-brew 'bat' if OS.mac? # install only on Mac
-brew 'htop' if OS.mac? # install only on Mac
-brew 'fzf' if OS.mac? # install only on Mac
-brew 'nmap' if OS.mac? # install only on Mac
+
+# install only on Mac
+brew 'vim' if OS.mac? 
+brew 'zsh' if OS.mac?
+brew 'curl' if OS.mac?
+brew 'bat' if OS.mac?
+brew 'fzf' if OS.mac?
+brew 'nmap' if OS.mac?
+brew 'ripgrep' if OS.mac?
+brew 'fd' if OS.mac?
+brew 'procs' if OS.mac?
