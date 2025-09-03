@@ -55,7 +55,7 @@ if ! command -v brew >/dev/null 2>&1; then
             sudo apt install build-essential -y
             ;;
         fedora)
-            sudo dnf groupinstall "Development Tools" -y
+            sudo dnf group install development-tools
             sudo dnf install procps-ng curl file git -y
             ;;
     esac
