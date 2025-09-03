@@ -60,7 +60,7 @@ if ! command -v brew >/dev/null 2>&1; then
             ;;
     esac
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
-    eval "$($(command -v brew) shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 else
     echo "===homebrew is installed already==="
 fi
