@@ -97,9 +97,10 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
             sudo apt install vim bat fzf net-tools nmap ripgrep fd-find procs -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
+	    brew install btop
             ;;
         fedora)
-            sudo dnf install vim bat fzf net-tools nmap ripgrep fd-find procs -y
+            sudo dnf install vim bat btop fzf net-tools nmap ripgrep fd-find procs -y
             ;;
     esac
 fi
