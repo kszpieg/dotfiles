@@ -92,18 +92,19 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
     echo "=====installing linux apps...====="
     # install vim, batcat, fzf nmap ripgrep fd-find procs and network tools
-    # for ubuntu/debian install btop and zoxide via homebrew
-    # fedora install btop and zoxide via dnf
+    # for ubuntu/debian install bottom and zoxide via homebrew
+    # fedora install bottom and zoxide via dnf
     case "$DISTRO_TYPE" in
         ubuntu|debian)
             sudo apt install vim bat fzf net-tools nmap ripgrep fd-find procs -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
-	    brew install btop zoxide
+	    brew install bottom zoxide
             ;;
         fedora)
-            sudo dnf install vim bat btop fzf net-tools nmap ripgrep fd-find procs zoxide -y
-            ;;
+            sudo dnf copr enable atim/bottom -y
+	    sudo dnf install vim bat bottom fzf net-tools nmap ripgrep fd-find procs zoxide -y
+	    ;;
     esac
 fi
 

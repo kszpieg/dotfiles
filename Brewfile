@@ -1,6 +1,5 @@
 # Binaries
 brew 'bandwhich'
-brew 'bottom'
 brew 'doggo'
 brew 'dust'
 brew 'eza'
