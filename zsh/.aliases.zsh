@@ -55,6 +55,7 @@ alias py="python3"
 
 # jump to work directory
 alias gdir="cd $HOME/gitdir"
+alias storage="cd storage"
 
 # git aliases
 # update submodule recursively to latest remote commit

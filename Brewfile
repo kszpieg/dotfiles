@@ -9,7 +9,6 @@ brew 'gping'
 brew 'hyperfine'
 brew 'tldr'
 brew 'tokei'
-brew 'zoxide'
 
 # install only on Mac
 brew 'bat' if OS.mac?
