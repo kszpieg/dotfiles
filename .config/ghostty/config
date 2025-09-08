@@ -43,11 +43,20 @@
 # resize-overlay-duration = 4s 200ms
 
 ### CONFIG ###
-window-theme=dark
-background-opacity=0.97
-background-blur=true
-confirm-close-surface=false
-theme="Dark Modern"
+# theme options
+theme = "Dark Modern"
+window-theme = dark
+
+# window-size
+window-height = 40
+window-width = 150
+
+# background properties
+background-opacity = 0.97
+background-blur = true
+
+# turn off confirmation on close tab/split
+confirm-close-surface = false
 
 ### KEYBINDINGS ###
 keybind = ctrl+w=close_window
