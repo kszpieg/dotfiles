@@ -72,11 +72,15 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     docker
+    docker-compose
     git
     fzf-tab
     jsontools
     sudo
+    pep8
     pip
+    python
+    vscode
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
