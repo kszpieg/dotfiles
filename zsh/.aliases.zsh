@@ -54,15 +54,14 @@ alias cl="clear"
 alias py="python3"
 
 # jump to work directory
-alias gdir="cd $HOME/gitdir"
-alias storage="cd storage"
+alias gdir="cd /mnt/c/Users/krzysztof.szpieg/gitdir"
 
 # git aliases
 # update submodule recursively to latest remote commit
 alias gsur="gsu --remote --recursive"
 
 # jump to dotfiles
-alias dotfiles="cd $HOME/gitdir/.dotfiles"
+alias dotfiles="cd /mnt/c/Users/krzysztof.szpieg/gitdir/dotfiles"
 
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
