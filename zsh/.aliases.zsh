@@ -70,14 +70,27 @@ else
 fi
 
 # jump to work directory
+<<<<<<< HEAD
 alias gdir="cd $GITDIR_PATH"
+||||||| parent of aaf0f77 (feat(work): add variant of dotfiles for work env)
+alias gdir="cd $HOME/gitdir"
+alias storage="cd storage"
+=======
+alias gdir="cd /mnt/c/Users/krzysztof.szpieg/gitdir"
+>>>>>>> aaf0f77 (feat(work): add variant of dotfiles for work env)
 
 # git aliases
 # update submodule recursively to latest remote commit
 alias gsur="gsu --remote --recursive"
 
 # jump to dotfiles
+<<<<<<< HEAD
 alias dotfiles="cd $GITDIR_PATH/.dotfiles"
+||||||| parent of aaf0f77 (feat(work): add variant of dotfiles for work env)
+alias dotfiles="cd $HOME/gitdir/.dotfiles"
+=======
+alias dotfiles="cd /mnt/c/Users/krzysztof.szpieg/gitdir/dotfiles"
+>>>>>>> aaf0f77 (feat(work): add variant of dotfiles for work env)
 
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
