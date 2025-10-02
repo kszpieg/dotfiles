@@ -96,7 +96,13 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     # fedora install bottom and zoxide via dnf
     case "$DISTRO_TYPE" in
         ubuntu|debian)
+<<<<<<< HEAD
             sudo apt install vim bat fzf nmap ripgrep fd-find htop -y
+||||||| parent of aaf0f77 (feat(work): add variant of dotfiles for work env)
+            sudo apt install vim bat fzf nmap ripgrep fd-find procs -y
+=======
+            sudo apt install vim bat fzf nmap ripgrep fd-find -y
+>>>>>>> aaf0f77 (feat(work): add variant of dotfiles for work env)
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
 	    ln -s $(which fdfind) ~/.local/bin/fd
