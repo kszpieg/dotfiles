@@ -2,8 +2,30 @@
 	email = krzysztof.szpieg@globallogic.com
 	name = Krzysztof Szpieg
 [core]
+	email = krzysztof.szpieg@globallogic.com
 	editor = vim
 	autocrlf = input
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	sslVerify = false
+	sslKey = /mnt/c/certs/swf.key
+	sslCert = /mnt/c/certs/swf.cl.crt
+	sslCaInfo = /mnt/c/certs/swf.ca.crt
+	postBuffer = 1048576000
+[https]
+        sslVerify = false
+        sslKey = /mnt/c/certs/swf.key
+        sslCert = /mnt/c/certs/swf.cl.crt
+        sslCaInfo = /mnt/c/certs/swf.ca.crt
+        postBuffer = 1048576000
+[url "<gitlab_token>"]
+	insteadOf = <ssh_gitlab_instance>
+[credential "<url_gitlab_instance>"]
+	provider = generic
 [commit]
 	verbose = true
 [merge]
