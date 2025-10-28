@@ -64,6 +64,9 @@ alias gsur="gsu --remote --recursive"
 # jump to dotfiles
 alias dotfiles="cd $HOME/gitdir/.dotfiles"
 
+# install bt5 asus drivers
+alias bt5i="cd $HOME/LINUX_BT_DRIVER && sudo make install INTERFACE=usb"
+
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
 alias przemysl="curl wttr.in/przemysl"
