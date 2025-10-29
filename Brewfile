@@ -2,6 +2,7 @@
 brew 'bandwhich'
 brew 'doggo'
 brew 'dust'
+brew 'dysk'
 brew 'eza'
 brew 'fastfetch'
 brew 'gping'
