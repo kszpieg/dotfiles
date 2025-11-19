@@ -53,19 +53,22 @@ alias cl="clear"
 # python stuff
 alias py="python3"
 
+# set proper base path for gitdir
+if grep -qi microsoft /proc/sys/kernel/osrelease; then
+	GITDIR_PATH="/mnt/e/gitdir"
+else
+	GITDIR_PATH=$HOME
+fi
+
 # jump to work directory
-alias gdir="cd $HOME/gitdir"
-alias storage="cd storage"
+alias gdir="cd $GITDIR_PATH"
 
 # git aliases
 # update submodule recursively to latest remote commit
 alias gsur="gsu --remote --recursive"
 
 # jump to dotfiles
-alias dotfiles="cd $HOME/gitdir/.dotfiles"
-
-# install bt5 asus drivers
-alias bt5i="cd $HOME/LINUX_BT_DRIVER && sudo make install INTERFACE=usb"
+alias dotfiles="cd $GITDIR_PATH/.dotfiles"
 
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
