@@ -9,5 +9,4 @@ create_ln git/.gitconfig -nf # (for work it's different)
 create_ln vim/.vimrc -nf
 create_ln .config/fastfetch/config.jsonc
 create_ln .config/starship.toml
-create_ln .config/ghostty/config
 
