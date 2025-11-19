@@ -8,6 +8,7 @@ brew 'fastfetch'
 brew 'gping'
 brew 'httpie'
 brew 'hyperfine'
+brew 'procs'
 brew 'tldr'
 brew 'tokei'
 
