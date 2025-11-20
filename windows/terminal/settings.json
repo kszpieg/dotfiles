@@ -5,7 +5,7 @@
     "alwaysShowNotificationIcon": false,
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+    "defaultProfile": "{148f52a7-a912-525b-ae72-ecb45a282db4}",
     "initialCols": 150,
     "initialRows": 50,
     "keybindings": 
@@ -60,11 +60,11 @@
                 "name": "Command Prompt"
             },
             {
-                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "guid": "{148f52a7-a912-525b-ae72-ecb45a282db4}",
                 "hidden": false,
                 "icon": "%userprofile%/win_term/icons/ubuntu-16.png",
                 "name": "Ubuntu",
-                "source": "Windows.Terminal.Wsl",
+                "source": "Microsoft.WSL",
                 "suppressApplicationTitle": true,
                 "tabTitle": "Ubuntu"
             },
