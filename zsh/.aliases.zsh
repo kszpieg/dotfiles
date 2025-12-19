@@ -32,13 +32,22 @@ alias pcat="bat --style=plain"
 
 # ls alternative
 alias ls="eza --icons --group-directories-first"
-alias lsl="eza --icons --group-directories-first -lgh"
-alias lsa="eza --icons --group-directories-first -lghA"
-alias lst="eza --icons --group-directories-first -lgh --tree --level 2"
-alias lsta="eza --icons --group-directories-first -lghA --tree --level 2"
+alias lsl="eza --icons --group-directories-first -lgh --git"
+alias lsa="eza --icons --group-directories-first -lghA --git"
+alias lst="eza --icons --group-directories-first -lgh --tree --level 2 --git"
+alias lsta="eza --icons --group-directories-first -lghA --tree --level 2 --git"
 
 # DNS tool - dog
 alias dns="doggo"
+
+# man alternative
+alias help="tldr"
+
+# grep alternative
+alias grep="rg"
+
+# find alternative
+alias find="fd"
 
 # jump back n directories at a time
 alias ..="cd .."

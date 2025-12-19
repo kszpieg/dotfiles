@@ -99,6 +99,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
             sudo apt install vim bat fzf nmap ripgrep fd-find -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
+	    ln -s $(which fdfind) ~/.local/bin/fd
 	    brew install bottom zoxide
             ;;
         fedora)
