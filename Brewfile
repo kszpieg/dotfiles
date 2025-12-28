@@ -9,6 +9,7 @@ brew 'gping'
 brew 'httpie'
 brew 'hyperfine'
 brew 'procs'
+brew 'snitch'
 brew 'tldr'
 brew 'tokei'
 
