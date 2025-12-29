@@ -96,7 +96,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     # fedora install bottom and zoxide via dnf
     case "$DISTRO_TYPE" in
         ubuntu|debian)
-            sudo apt install vim bat fzf nmap ripgrep fd-find -y
+            sudo apt install vim bat fzf nmap ripgrep fd-find htop -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
 	    ln -s $(which fdfind) ~/.local/bin/fd
@@ -104,7 +104,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
             ;;
         fedora)
             sudo dnf copr enable atim/bottom -y
-	    sudo dnf install vim bat bottom fzf nmap ripgrep fd-find zoxide -y
+	    sudo dnf install vim bat bottom fzf nmap ripgrep fd-find htop zoxide -y
 	    ;;
     esac
 fi
