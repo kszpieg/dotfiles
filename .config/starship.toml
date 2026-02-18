@@ -3,9 +3,11 @@
 # Change the default prompt format
 add_newline = true
 command_timeout = 10000
-format = """\
-[╭╴](238)$os$username$hostname$time$directory\
-$all[╰─](238)$character"""
+format = """
+$os$username$hostname$directory$git_branch$git_status$time\
+$aws$docker_context$golang$java$kubernetes$lua$memory_usage$nodejs$package$python$ruby$rust
+$character
+"""
 
 [character]
 success_symbol = '[ ](bold green)'
@@ -108,14 +110,6 @@ deleted = '  '
 symbol = '  '
 format = 'via [$symbol$version](bold #FF9900) '
 
-[c]
-symbol = ' '
-format = 'via [$symbol$version](bold #659AD2) '
-
-[dart]
-symbol = ' '
-format = 'via [$symbol$version](bold #0075BA) '
-
 [docker_context]
 symbol = ' '
 format = 'via [$symbol$version](bold #1D63ED) '
@@ -158,7 +152,3 @@ format = 'via [$symbol$version](bold #841B2D) '
 [rust]
 symbol = ' '
 format = 'via [$symbol$version](bold #CE412B) '
-
-[scala]
-symbol = ' '
-format = 'via [$symbol$version](bold #DE3423) '
