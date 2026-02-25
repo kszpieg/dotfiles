@@ -102,7 +102,7 @@ alias py="python3"
 
 # set proper base path for gitdir: WSL drive first, then ~/gitdir, ~/gdir and finally $HOME
 GITDIR_PATH=$HOME
-for dir in /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
+for dir in /mnt/c/Users/krzysztof.szpieg/gitdir "$HOME/gitdir" "$HOME/gdir"; do
 	if [[ -d "$dir" ]]; then
 		GITDIR_PATH="$dir"
 		break
