@@ -25,7 +25,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[includeIf "gitdir:/mnt/e/repos/gl_work/"]
-	path = ~/.gitconfig-work
+[includeIf "gitdir:/mnt/c/Users/krzysztof.szpieg/repos/volvo/"]
+	path = ~/.gitconfig-volvo
 [init]
 	defaultBranch = main
