@@ -100,9 +100,9 @@ alias cl="clear"
 # python stuff
 alias py="python3"
 
-# set proper base path for repos: ~/repos, then the WSL drive and finally $HOME
+# set proper base path for repos: ~/repos, then the Windows user dir and finally $HOME
 REPOS_PATH=$HOME
-for dir in "$HOME/repos" /mnt/e/repos; do
+for dir in "$HOME/repos" /mnt/c/Users/krzysztof.szpieg/repos; do
 	if [[ -d "$dir" ]]; then
 		REPOS_PATH="$dir"
 		break
