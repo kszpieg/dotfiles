@@ -116,6 +116,7 @@ alias gdir="cd $GITDIR_PATH"
 # git aliases
 # update submodule recursively to latest remote commit
 alias gsur="gsu --remote --recursive"
+alias grw="git review"
 
 # pin spycode's blowfish theme submodule to a specific tag/commit
 spypin() {
