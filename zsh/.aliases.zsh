@@ -75,6 +75,7 @@ alias gdir="cd $GITDIR_PATH"
 # git aliases
 # update submodule recursively to latest remote commit
 alias gsur="gsu --remote --recursive"
+alias grw="git review"
 
 # jump to dotfiles
 alias dotfiles="cd $GITDIR_PATH/dotfiles"
