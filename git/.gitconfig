@@ -20,3 +20,5 @@
 	autoSetupRemote = true
 [pull]
 	ff = only
+[includeIf "gitdir:/mnt/c/Users/krzysztof.szpieg/gitdir/volvo/"]
+	path = ~/.gitconfig-volvo
