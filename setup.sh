@@ -151,6 +151,15 @@ else
     echo "⚠️ configs.sh not found!"
 fi
 
+# === Copilot and Claude ===
+echo "=====installing Copilot and Claude... ====="
+echo "Installing Claude Code..."
+curl -fsSL https://claude.ai/install.sh | bash
+echo "Done!"
+echo "Installing Copilot CLI..."
+curl -fsSL https://gh.io/copilot-install | bash
+echo "Done!"
+
 # === Finish section ===
 echo "=====almost done... need to reboot====="
 read -p "Reboot now? [y/N]: " REBOOT_CONFIRM
