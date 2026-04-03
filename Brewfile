@@ -12,8 +12,10 @@ brew 'just'
 brew 'jq'
 brew 'procs'
 brew 'snitch'
+brew 'sd'
 brew 'tldr'
 brew 'tokei'
+brew 'watchexec'
 
 # install only on Mac
 brew 'bat' if OS.mac?
