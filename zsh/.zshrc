@@ -80,6 +80,7 @@ plugins=(
     pep8
     pip
     python
+    terraform
     vscode
     zsh-autosuggestions
     zsh-syntax-highlighting
