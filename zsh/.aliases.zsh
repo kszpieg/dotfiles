@@ -5,9 +5,10 @@ alias zshconfig="vim $HOME/.zshrc"
 # starship config
 alias shipcfg="vim $HOME/.config/starship.toml"
 
-# Config aliases
+# config aliases
 alias aliases="vim $HOME/.aliases.zsh"
 
+# system update aliases
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
     case "$ID" in
@@ -25,6 +26,10 @@ if [[ -f /etc/os-release ]]; then
             ;;
     esac
 fi
+
+# suffix aliases
+alias -s md="bat"
+alias -s json="jless"
 
 # cat alternative
 alias cat="bat"
