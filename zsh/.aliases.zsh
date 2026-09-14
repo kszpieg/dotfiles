@@ -27,6 +27,18 @@ if [[ -f /etc/os-release ]]; then
     esac
 fi
 
+# ai tools update
+alias aiup='
+  echo "=== Codex ===";
+  codex update;
+  echo;
+  echo "=== Copilot ===";
+  copilot update;
+  echo;
+  echo "=== Claude Code ===";
+  claude update;
+'
+
 # suffix aliases
 alias -s md="bat"
 alias -s json="jless"
@@ -84,12 +96,12 @@ alias gsur="gsu --remote --recursive"
 # pin spycode's blowfish theme submodule to a specific tag/commit
 spypin() {
 	local ref="$1"
-	local path="$GITDIR_PATH/websites/spycode/themes/blowfish"
+	local theme_path="$GITDIR_PATH/websites/spycode/themes/blowfish"
 	if [[ -z "$ref" ]]; then
 		echo "usage: spypin <tag-or-commit>   (pins spycode's blowfish theme submodule)"
 		return 1
 	fi
-	( cd "$path" && git fetch --tags && git checkout "$ref" ) || return 1
+	( cd "$theme_path" && git fetch --tags && git checkout "$ref" ) || return 1
 	echo "→ blowfish theme now on $ref (detached HEAD)"
 	echo "→ don't forget: cd $GITDIR_PATH/websites/spycode && git add themes/blowfish && git commit"
 }
