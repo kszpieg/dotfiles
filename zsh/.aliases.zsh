@@ -92,12 +92,15 @@ alias cl="clear"
 # python stuff
 alias py="python3"
 
-# set proper base path for gitdir
-if grep -qi microsoft /proc/sys/kernel/osrelease; then
-	GITDIR_PATH="/mnt/e/gitdir"
-else
-	GITDIR_PATH=$HOME
-fi
+# set proper base path for gitdir: WSL drive first, then ~/gitdir, ~/gdir and finally $HOME
+GITDIR_PATH=$HOME
+for dir in /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
+	if [[ -d "$dir" ]]; then
+		GITDIR_PATH="$dir"
+		break
+	fi
+done
+unset dir
 
 # jump to work directory
 alias gdir="cd $GITDIR_PATH"
@@ -119,8 +122,8 @@ spypin() {
 	echo "→ don't forget: cd $GITDIR_PATH/websites/spycode && git add themes/blowfish && git commit"
 }
 
-# jump to dotfiles
-alias dotfiles="cd $GITDIR_PATH/.dotfiles"
+# jump to dotfiles (resolved from the real location of this file)
+alias dotfiles="cd ${${(%):-%x}:A:h:h}"
 
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
