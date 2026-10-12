@@ -104,6 +104,32 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
             sudo dnf install vim bat fzf nmap ripgrep fd-find htop git-lfs -y
             ;;
     esac
+
+    # install terraform from the HashiCorp repository (on Mac it comes from Brewfile)
+    echo "=====checking for terraform...====="
+    if ! command -v terraform >/dev/null 2>&1; then
+        case "$DISTRO_TYPE" in
+            ubuntu|debian)
+                sudo install -m 0755 -d /etc/apt/keyrings
+                sudo curl -fsSL https://apt.releases.hashicorp.com/gpg -o /etc/apt/keyrings/hashicorp.asc
+                sudo tee /etc/apt/sources.list.d/hashicorp.sources >/dev/null <<EOF
+Types: deb
+URIs: https://apt.releases.hashicorp.com
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: main
+Signed-By: /etc/apt/keyrings/hashicorp.asc
+EOF
+                sudo apt update -y && sudo apt install terraform -y
+                ;;
+            fedora)
+                sudo dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+                sudo dnf install terraform -y
+                ;;
+        esac
+    else
+        echo "===terraform is installed already==="
+    fi
+    echo DONE
 fi
 
 

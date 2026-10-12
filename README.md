@@ -56,5 +56,6 @@ CLI tools (see `Brewfile` and `setup.sh` for the full list):
 | `watchexec`, `just` | dev utilities |
 | `fastfetch` | system info |
 | `git-lfs` | Git LFS support (required by `.gitconfig`) |
+| `terraform` | infrastructure as code (from the HashiCorp repository) |
 
 AI tools: Claude Code, GitHub Copilot CLI, Codex CLI (update all with `aiup`).

@@ -22,5 +22,7 @@ brew 'fzf' if OS.mac?
 brew 'git-lfs' if OS.mac?
 brew 'nmap' if OS.mac?
 brew 'ripgrep' if OS.mac?
+tap 'hashicorp/tap' if OS.mac?
+brew 'hashicorp/tap/terraform' if OS.mac?
 brew 'vim' if OS.mac? 
 brew 'zsh' if OS.mac?
