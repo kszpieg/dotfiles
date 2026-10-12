@@ -1,6 +1,6 @@
 # Installation
 
-1. Copy `starship.toml` from `linux` directory in this repo to `$HOME` directory on Windows (usually I'm using `C:/Users/<your_user>/.starship`)
+1. Copy `starship.toml` from `.config` directory in this repo to `$HOME` directory on Windows (usually I'm using `C:/Users/<your_user>/.starship`)
 2. Copy `starship.lua` to `clink` directory under `%LocalAppData%\clink\starship.lua`
 3. Enjoy!
 
