@@ -91,18 +91,18 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     echo DONE
 
     echo "=====installing linux apps...====="
-    # install vim, batcat, fzf nmap ripgrep fd-find and procs
+    # install vim, batcat, fzf, nmap, ripgrep, fd-find, htop and git-lfs
     # (bottom and zoxide come from Brewfile)
     case "$DISTRO_TYPE" in
         ubuntu|debian)
-            sudo apt install vim bat fzf nmap ripgrep fd-find htop -y
+            sudo apt install vim bat fzf nmap ripgrep fd-find htop git-lfs -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
-	    ln -s $(which fdfind) ~/.local/bin/fd
+            ln -sf "$(which fdfind)" ~/.local/bin/fd
             ;;
         fedora)
-	    sudo dnf install vim bat fzf nmap ripgrep fd-find htop -y
-	    ;;
+            sudo dnf install vim bat fzf nmap ripgrep fd-find htop git-lfs -y
+            ;;
     esac
 fi
 
@@ -139,13 +139,16 @@ else
     echo "⚠️ configs.sh not found!"
 fi
 
-# === Copilot and Claude ===
-echo "=====installing Copilot and Claude... ====="
+# === Copilot, Claude and Codex ===
+echo "=====installing Copilot, Claude and Codex... ====="
 echo "Installing Claude Code..."
 curl -fsSL https://claude.ai/install.sh | bash
 echo "Done!"
 echo "Installing Copilot CLI..."
 curl -fsSL https://gh.io/copilot-install | bash
+echo "Done!"
+echo "Installing Codex CLI..."
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
 echo "Done!"
 
 # === Finish section ===
