@@ -92,7 +92,7 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
     echo "=====installing linux apps...====="
     # install vim, batcat, fzf, nmap, ripgrep, fd-find, htop and git-lfs
-    # (bottom and zoxide come from Brewfile)
+    # (zoxide comes from Brewfile)
     case "$DISTRO_TYPE" in
         ubuntu|debian)
             sudo apt install vim bat fzf nmap ripgrep fd-find htop git-lfs -y

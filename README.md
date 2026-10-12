@@ -50,10 +50,10 @@ CLI tools (see `Brewfile` and `setup.sh` for the full list):
 | `fzf` | fuzzy finder |
 | `tlrc` | `tldr` client (`help` alias) |
 | `jq`, `jless` | JSON processing and viewing |
-| `bottom`, `htop`, `procs` | process and resource monitors |
-| `dust`, `dysk` | disk usage |
-| `bandwhich`, `snitch`, `gping`, `doggo`, `nmap`, `httpie` | network tools |
-| `hyperfine`, `tokei`, `watchexec`, `just` | dev utilities |
+| `htop` | process and resource monitor |
+| `dust` | disk usage |
+| `doggo`, `nmap`, `httpie` | network tools |
+| `watchexec`, `just` | dev utilities |
 | `fastfetch` | system info |
 | `git-lfs` | Git LFS support (required by `.gitconfig`) |
 
