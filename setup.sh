@@ -92,19 +92,16 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
     echo "=====installing linux apps...====="
     # install vim, batcat, fzf nmap ripgrep fd-find and procs
-    # for ubuntu/debian install bottom and zoxide via homebrew
-    # fedora install bottom and zoxide via dnf
+    # (bottom and zoxide come from Brewfile)
     case "$DISTRO_TYPE" in
         ubuntu|debian)
             sudo apt install vim bat fzf nmap ripgrep fd-find htop -y
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
 	    ln -s $(which fdfind) ~/.local/bin/fd
-	    brew install bottom zoxide
             ;;
         fedora)
-            sudo dnf copr enable atim/bottom -y
-	    sudo dnf install vim bat bottom fzf nmap ripgrep fd-find htop zoxide -y
+	    sudo dnf install vim bat fzf nmap ripgrep fd-find htop -y
 	    ;;
     esac
 fi
@@ -129,15 +126,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     fi
 else
     echo "===oh-my-zsh is installed already==="
-fi
-echo DONE
-
-# === Starship ===
-echo "=====checking for starship...====="
-if ! command -v starship >/dev/null 2>&1; then
-    sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
-else
-    echo "===starship is installed already==="
 fi
 echo DONE
 
