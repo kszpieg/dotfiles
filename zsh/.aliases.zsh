@@ -1,5 +1,18 @@
 # zshrc config
-alias reload="source $HOME/.zshrc"
+# reload shell; with -u also update oh-my-zsh and custom plugins
+reload() {
+	if [[ "$1" == "-u" ]]; then
+		local plugin
+		for plugin in "${ZSH_CUSTOM:-$ZSH/custom}"/plugins/*(N/); do
+			[[ -d "$plugin/.git" ]] || continue
+			echo "=== ${plugin:t} ==="
+			git -C "$plugin" pull --ff-only
+		done
+		echo "=== oh-my-zsh ==="
+		zsh -f "$ZSH/tools/upgrade.sh"
+	fi
+	exec zsh
+}
 alias zshconfig="vim $HOME/.zshrc"
 
 # starship config

@@ -77,7 +77,6 @@ plugins=(
     fzf-tab
     jsontools
     sudo
-    pep8
     pip
     python
     terraform
