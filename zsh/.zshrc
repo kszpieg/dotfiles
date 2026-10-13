@@ -17,6 +17,9 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+# No local ssh-agent when logged in over SSH (servers hold no keys)
+[[ -n $SSH_CONNECTION ]] && plugins=(${plugins:#ssh-agent})
+
 # Plugin settings must be set before oh-my-zsh is sourced
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent quiet yes

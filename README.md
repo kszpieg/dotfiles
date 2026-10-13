@@ -20,6 +20,12 @@
     cd ~/.dotfiles && chmod +x setup.sh && ./setup.sh
     ```
 
+- for a minimal installation on a server (Ubuntu/Debian only) add `--server` — no Homebrew, compiler, terraform or AI tools; the tools behind the aliases come from `apt` (`eza`, `zoxide`, `jq`, `dig`), while `starship` and `tlrc` are installed as single binaries
+
+    ```shell
+    cd ~/.dotfiles && chmod +x setup.sh && ./setup.sh --server
+    ```
+
 - for only copy configs run `configs.sh` (it's contained in `setup.sh` so it's not necessary to run it separately)
 
     ```shell

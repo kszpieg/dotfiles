@@ -54,7 +54,11 @@ alias aiup='
 
 # suffix aliases
 alias -s md="bat"
-alias -s json="jless"
+if (( $+commands[jless] )); then
+    alias -s json="jless"
+else
+    alias -s json="bat"
+fi
 
 # cat alternative
 alias cat="bat"
@@ -67,8 +71,12 @@ alias lsa="eza --icons --group-directories-first -lghA --git"
 alias lst="eza --icons --group-directories-first -lgh --tree --level 2 --git"
 alias lsta="eza --icons --group-directories-first -lghA --tree --level 2 --git"
 
-# DNS tool - dog
-alias dns="doggo"
+# DNS tool - doggo, with dig as a fallback on servers
+if (( $+commands[doggo] )); then
+    alias dns="doggo"
+elif (( $+commands[dig] )); then
+    alias dns="dig"
+fi
 
 # man alternative
 alias help="tldr"

@@ -2,6 +2,20 @@
 
 set -e
 
+# === Arguments ===
+# --server: minimal setup for servers (no Homebrew, no dev tools, no AI tools)
+SERVER_MODE=false
+for arg in "$@"; do
+    case "$arg" in
+        --server) SERVER_MODE=true ;;
+        *)
+            echo "Unknown option: $arg"
+            echo "Usage: $0 [--server]"
+            exit 1
+            ;;
+    esac
+done
+
 sudo -v
 
 if [ -f "$(dirname "$0")/functions/sh/symlinks.sh" ]; then
@@ -31,6 +45,16 @@ case "$OSTYPE" in
         ;;
 esac
 
+if [ "$SERVER_MODE" = true ]; then
+    case "$DISTRO_TYPE" in
+        ubuntu|debian) echo "=====server mode: minimal setup=====" ;;
+        *)
+            echo "Server mode supports only Ubuntu/Debian (found: $DISTRO_TYPE)"
+            exit 1
+            ;;
+    esac
+fi
+
 # === Update system & curl ===
 echo "=====checking for updates... please wait...====="
 case "$DISTRO_TYPE" in
@@ -47,33 +71,35 @@ case "$DISTRO_TYPE" in
         ;;
 esac
 
-# === Homebrew ===
-echo "=====checking for homebrew...====="
-if ! command -v brew >/dev/null 2>&1; then
-    case "$DISTRO_TYPE" in
-        ubuntu|debian)
-            sudo apt install build-essential -y
-            ;;
-        fedora)
-            sudo dnf group install development-tools
-            sudo dnf install procps-ng curl file git -y
-            ;;
-    esac
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-else
-    echo "===homebrew is installed already==="
-fi
-echo DONE
+if [ "$SERVER_MODE" = false ]; then
+    # === Homebrew ===
+    echo "=====checking for homebrew...====="
+    if ! command -v brew >/dev/null 2>&1; then
+        case "$DISTRO_TYPE" in
+            ubuntu|debian)
+                sudo apt install build-essential -y
+                ;;
+            fedora)
+                sudo dnf group install development-tools
+                sudo dnf install procps-ng curl file git -y
+                ;;
+        esac
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    else
+        echo "===homebrew is installed already==="
+    fi
+    echo DONE
 
-# === Install Brew Packages ===
-echo "=====installing brew packages...====="
-# update brew recipes
-brew update
-if [ -f "./Brewfile" ]; then
-    brew bundle --file ./Brewfile
-else
-    echo "⚠️ Brewfile not found, skipping brew bundle."
+    # === Install Brew Packages ===
+    echo "=====installing brew packages...====="
+    # update brew recipes
+    brew update
+    if [ -f "./Brewfile" ]; then
+        brew bundle --file ./Brewfile
+    else
+        echo "⚠️ Brewfile not found, skipping brew bundle."
+    fi
 fi
 
 # === Linux-only apps ===
@@ -91,11 +117,16 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
     echo DONE
 
     echo "=====installing linux apps...====="
-    # install vim, batcat, fzf, nmap, ripgrep, fd-find, htop and git-lfs
-    # (zoxide comes from Brewfile)
+    # install vim, batcat, fzf, ripgrep, fd-find and htop
+    # full setup: also nmap and git-lfs (zoxide and the rest come from Brewfile)
+    # server setup: also eza, zoxide, jq and dig from apt instead of Brewfile
     case "$DISTRO_TYPE" in
         ubuntu|debian)
-            sudo apt install vim bat fzf nmap ripgrep fd-find htop git-lfs -y
+            if [ "$SERVER_MODE" = true ]; then
+                sudo apt install vim bat fzf ripgrep fd-find htop eza zoxide jq dnsutils -y
+            else
+                sudo apt install vim bat fzf nmap ripgrep fd-find htop git-lfs -y
+            fi
             mkdir -p ~/.local/bin
             ln -sf /usr/bin/batcat ~/.local/bin/bat
             ln -sf "$(which fdfind)" ~/.local/bin/fd
@@ -107,7 +138,9 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
 
     # install terraform from the HashiCorp repository (on Mac it comes from Brewfile)
     echo "=====checking for terraform...====="
-    if ! command -v terraform >/dev/null 2>&1; then
+    if [ "$SERVER_MODE" = true ]; then
+        echo "===server mode, skipping terraform==="
+    elif ! command -v terraform >/dev/null 2>&1; then
         case "$DISTRO_TYPE" in
             ubuntu|debian)
                 sudo install -m 0755 -d /etc/apt/keyrings
@@ -130,6 +163,31 @@ EOF
         echo "===terraform is installed already==="
     fi
     echo DONE
+
+    # server setup: starship and tlrc as single binaries (on full setup both come from Brewfile)
+    if [ "$SERVER_MODE" = true ]; then
+        echo "=====checking for starship...====="
+        if ! command -v starship >/dev/null 2>&1; then
+            curl -fsSL https://starship.rs/install.sh | sh -s -- --yes
+        else
+            echo "===starship is installed already==="
+        fi
+        echo DONE
+
+        # tealdeer from apt is too old to download pages, so tlrc comes from its GitHub release
+        echo "=====checking for tlrc...====="
+        if ! command -v tldr >/dev/null 2>&1; then
+            TLRC_VERSION=$(curl -fsSL -o /dev/null -w '%{url_effective}' https://github.com/tldr-pages/tlrc/releases/latest)
+            TLRC_VERSION=${TLRC_VERSION##*/}
+            TLRC_DEB="tlrc-${TLRC_VERSION}-$(uname -m)-unknown-linux-musl.deb"
+            curl -fsSL -o "/tmp/$TLRC_DEB" "https://github.com/tldr-pages/tlrc/releases/download/${TLRC_VERSION}/${TLRC_DEB}"
+            sudo apt install "/tmp/$TLRC_DEB" -y
+            rm -f "/tmp/$TLRC_DEB"
+        else
+            echo "===tlrc is installed already==="
+        fi
+        echo DONE
+    fi
 fi
 
 
@@ -166,16 +224,18 @@ else
 fi
 
 # === Copilot, Claude and Codex ===
-echo "=====installing Copilot, Claude and Codex... ====="
-echo "Installing Claude Code..."
-curl -fsSL https://claude.ai/install.sh | bash
-echo "Done!"
-echo "Installing Copilot CLI..."
-curl -fsSL https://gh.io/copilot-install | bash
-echo "Done!"
-echo "Installing Codex CLI..."
-curl -fsSL https://chatgpt.com/codex/install.sh | sh
-echo "Done!"
+if [ "$SERVER_MODE" = false ]; then
+    echo "=====installing Copilot, Claude and Codex... ====="
+    echo "Installing Claude Code..."
+    curl -fsSL https://claude.ai/install.sh | bash
+    echo "Done!"
+    echo "Installing Copilot CLI..."
+    curl -fsSL https://gh.io/copilot-install | bash
+    echo "Done!"
+    echo "Installing Codex CLI..."
+    curl -fsSL https://chatgpt.com/codex/install.sh | sh
+    echo "Done!"
+fi
 
 # === Finish section ===
 echo "=====almost done... need to reboot====="
