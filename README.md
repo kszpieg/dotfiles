@@ -65,3 +65,9 @@ CLI tools (see `Brewfile` and `setup.sh` for the full list):
 | `terraform` | infrastructure as code (from the HashiCorp repository) |
 
 AI tools: Claude Code, GitHub Copilot CLI, Codex CLI (update all with `aiup`).
+
+Claude Code status line: `.claude/statusline.sh` (symlinked by `configs.sh`) shows model, repo, context and 5h/7d rate limits, and snapshots the limits to `~/.claude/state/usage.json`. It needs `jq` and a Nerd Font, and has to be enabled once in `~/.claude/settings.json`:
+
+```json
+"statusLine": { "type": "command", "command": "~/.claude/statusline.sh", "refreshInterval": 30 }
+```
