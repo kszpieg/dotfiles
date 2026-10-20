@@ -32,7 +32,7 @@
     cd ~/.dotfiles && chmod +x configs.sh && ./configs.sh
     ```
 
-- for Termux on Android run `termux.sh` — only `openssh`, `git` and the SSH config, the phone is just a terminal for the servers
+- for Termux on Android run `termux.sh` — only `openssh`, `git`, the SSH config and a few aliases from `termux/aliases.sh` (`gdir`, `dotfiles`, `ssh-sync` to pull both repos and reinstall the SSH config), the phone is just a terminal for the servers
 
     ```shell
     pkg install git && git clone https://github.com/kszpieg/dotfiles.git ~/.dotfiles
