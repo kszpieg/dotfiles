@@ -11,3 +11,6 @@ create_ln .config/fastfetch/config.jsonc
 create_ln .config/starship.toml
 create_ln .claude/statusline.sh
 
+# ssh configs are copied, not linked (ssh rejects files writable by others)
+bash "$DIR/ssh/install.sh"
+

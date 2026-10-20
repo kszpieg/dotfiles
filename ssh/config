@@ -1,0 +1,9 @@
+# Shared SSH client settings; host entries live in ~/.ssh/config.d/ (private ssh_config repo)
+# Include must stay on top: ssh uses the first value it finds, so host entries override Host *
+Include ~/.ssh/config.d/*.conf
+
+Host *
+    AddKeysToAgent yes
+    ForwardAgent no
+    ServerAliveInterval 30
+    ServerAliveCountMax 3

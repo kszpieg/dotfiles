@@ -32,6 +32,19 @@
     cd ~/.dotfiles && chmod +x configs.sh && ./configs.sh
     ```
 
+- for Termux on Android run `termux.sh` — only `openssh`, `git` and the SSH config, the phone is just a terminal for the servers
+
+    ```shell
+    pkg install git && git clone https://github.com/kszpieg/dotfiles.git ~/.dotfiles
+    cd ~/.dotfiles && chmod +x termux.sh && ./termux.sh
+    ```
+
+### SSH config
+
+`ssh/install.sh` (run by `configs.sh` and `termux.sh`) copies `ssh/config` to `~/.ssh/config` with mode `600` — copied, not linked, because ssh rejects configs writable by others (`777` on WSL `/mnt` drives). The previous config is kept once as `~/.ssh/config.bak`.
+
+`ssh/config` holds only `Host *` defaults and `Include ~/.ssh/config.d/*.conf`. Host entries live in the private `ssh_config` repo: if it's cloned into `/mnt/e/gitdir`, `~/gitdir` or `~/gdir`, the installer copies its `*.conf` files into `~/.ssh/config.d/`; otherwise it skips them. After a change in either repo: `git pull` and run `ssh/install.sh` again.
+
 3. (Optional) Copy manually `update-motd.d/40-fastfetch` into `/etc/update-motd.d` and use `sudo chmod +x 40-fastfetch` command if you want some fancy stats about the system displayed in MOTD.
 
 4. Enjoy!
