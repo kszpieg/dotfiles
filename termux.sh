@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Minimal setup for Termux on Android: SSH client and git only
+# Minimal setup for Termux on Android: SSH client, git, eza and aliases
 
 set -e
 
@@ -12,9 +12,9 @@ case "$OSTYPE" in
         ;;
 esac
 
-echo "=====termux: installing openssh and git====="
+echo "=====termux: installing openssh, git and eza====="
 pkg upgrade -y
-pkg install -y openssh git
+pkg install -y openssh git eza
 
 echo "=====termux: ssh config====="
 bash "$(dirname "$0")/ssh/install.sh"
