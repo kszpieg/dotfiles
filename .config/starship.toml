@@ -6,8 +6,7 @@ command_timeout = 10000
 format = """
 $os$username$hostname$directory$git_branch$git_status$time\
 $aws$docker_context$golang$java$kubernetes$lua$memory_usage$nodejs$package$python$ruby$rust
-$character
-"""
+$character"""
 
 [character]
 success_symbol = '[ ](bold green)'
