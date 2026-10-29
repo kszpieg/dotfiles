@@ -3,17 +3,18 @@
 # dotfiles path from this file's location
 DOTFILES_PATH=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
-# set proper base path for gitdir: ~/gitdir, ~/gdir and finally $HOME (as in .aliases.zsh)
-GITDIR_PATH=$HOME
-for dir in "$HOME/gitdir" "$HOME/gdir"; do
+# set proper base path for repos: ~/repos, then the old gitdir names and finally $HOME (as in .aliases.zsh)
+REPOS_PATH=$HOME
+for dir in "$HOME/repos" "$HOME/gitdir" "$HOME/gdir"; do
     if [ -d "$dir" ]; then
-        GITDIR_PATH="$dir"
+        REPOS_PATH="$dir"
         break
     fi
 done
 unset dir
 
-alias gdir="cd $GITDIR_PATH"
+alias rp="cd $REPOS_PATH"
+alias gdir="rp"
 alias dotfiles="cd $DOTFILES_PATH"
 
 # package aliases (same names as on Ubuntu/Fedora in .aliases.zsh)
@@ -53,6 +54,6 @@ alias gd="git diff"
 # pull dotfiles and ssh_config, then reinstall the ssh config
 ssh-sync() {
     git -C "$DOTFILES_PATH" pull --ff-only &&
-        git -C "$GITDIR_PATH/ssh_config" pull --ff-only &&
+        git -C "$REPOS_PATH/ssh_config" pull --ff-only &&
         bash "$DOTFILES_PATH/ssh/install.sh"
 }

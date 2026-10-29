@@ -19,6 +19,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[includeIf "gitdir:/mnt/e/repos/gl_work/"]
+	path = ~/.gitconfig-work
 [includeIf "gitdir:/mnt/e/gitdir/gl_work/"]
 	path = ~/.gitconfig-work
 [init]

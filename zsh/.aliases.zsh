@@ -100,18 +100,20 @@ alias cl="clear"
 # python stuff
 alias py="python3"
 
-# set proper base path for gitdir: WSL drive first, then ~/gitdir, ~/gdir and finally $HOME
-GITDIR_PATH=$HOME
-for dir in /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
+# set proper base path for repos: ~/repos, WSL drive, then the old gitdir names and finally $HOME
+# (old names stay until every machine is migrated, see windows/migrate_repos)
+REPOS_PATH=$HOME
+for dir in "$HOME/repos" /mnt/e/repos /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
 	if [[ -d "$dir" ]]; then
-		GITDIR_PATH="$dir"
+		REPOS_PATH="$dir"
 		break
 	fi
 done
 unset dir
 
-# jump to work directory
-alias gdir="cd $GITDIR_PATH"
+# jump to repos directory (gdir: old name, kept during the migration)
+alias rp="cd $REPOS_PATH"
+alias gdir="rp"
 
 # git aliases
 # update submodule recursively to latest remote commit
@@ -120,14 +122,14 @@ alias gsur="gsu --remote --recursive"
 # pin spycode's blowfish theme submodule to a specific tag/commit
 spypin() {
 	local ref="$1"
-	local theme_path="$GITDIR_PATH/websites/spycode/themes/blowfish"
+	local theme_path="$REPOS_PATH/websites/spycode/themes/blowfish"
 	if [[ -z "$ref" ]]; then
 		echo "usage: spypin <tag-or-commit>   (pins spycode's blowfish theme submodule)"
 		return 1
 	fi
 	( cd "$theme_path" && git fetch --tags && git checkout "$ref" ) || return 1
 	echo "→ blowfish theme now on $ref (detached HEAD)"
-	echo "→ don't forget: cd $GITDIR_PATH/websites/spycode && git add themes/blowfish && git commit"
+	echo "→ don't forget: cd $REPOS_PATH/websites/spycode && git add themes/blowfish && git commit"
 }
 
 # jump to dotfiles (resolved from the real location of this file)
