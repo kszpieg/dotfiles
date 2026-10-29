@@ -2,14 +2,8 @@
 	email = krzysztof.szpieg@globallogic.com
 	name = Krzysztof Szpieg
 [core]
-	email = krzysztof.szpieg@globallogic.com
 	editor = vim
 	autocrlf = input
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
 [commit]
 	verbose = true
 [merge]
