@@ -3,18 +3,11 @@
 # dotfiles path from this file's location
 DOTFILES_PATH=$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")
 
-# set proper base path for repos: ~/repos, then the old gitdir names and finally $HOME (as in .aliases.zsh)
+# set proper base path for repos: ~/repos, otherwise $HOME (as in .aliases.zsh)
 REPOS_PATH=$HOME
-for dir in "$HOME/repos" "$HOME/gitdir" "$HOME/gdir"; do
-    if [ -d "$dir" ]; then
-        REPOS_PATH="$dir"
-        break
-    fi
-done
-unset dir
+[ -d "$HOME/repos" ] && REPOS_PATH="$HOME/repos"
 
 alias rp="cd $REPOS_PATH"
-alias gdir="rp"
 alias dotfiles="cd $DOTFILES_PATH"
 
 # package aliases (same names as on Ubuntu/Fedora in .aliases.zsh)

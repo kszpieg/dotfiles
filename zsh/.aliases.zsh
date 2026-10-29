@@ -100,10 +100,9 @@ alias cl="clear"
 # python stuff
 alias py="python3"
 
-# set proper base path for repos: ~/repos, WSL drive, then the old gitdir names and finally $HOME
-# (old names stay until every machine is migrated, see windows/migrate_repos)
+# set proper base path for repos: ~/repos, then the WSL drive and finally $HOME
 REPOS_PATH=$HOME
-for dir in "$HOME/repos" /mnt/e/repos /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
+for dir in "$HOME/repos" /mnt/e/repos; do
 	if [[ -d "$dir" ]]; then
 		REPOS_PATH="$dir"
 		break
@@ -111,9 +110,8 @@ for dir in "$HOME/repos" /mnt/e/repos /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir";
 done
 unset dir
 
-# jump to repos directory (gdir: old name, kept during the migration)
+# jump to repos directory
 alias rp="cd $REPOS_PATH"
-alias gdir="rp"
 
 # git aliases
 # update submodule recursively to latest remote commit

@@ -22,7 +22,7 @@ install -m 600 "$DIR/config" "$SSH_DIR/config"
 echo "ssh config installed"
 
 # host entries: same lookup order as REPOS_PATH in .aliases.zsh
-for dir in "$HOME/repos" /mnt/e/repos /mnt/e/gitdir "$HOME/gitdir" "$HOME/gdir"; do
+for dir in "$HOME/repos" /mnt/e/repos; do
     if [ -d "$dir/ssh_config" ]; then
         for conf in "$dir"/ssh_config/*.conf; do
             [ -e "$conf" ] || continue
