@@ -133,6 +133,11 @@ spypin() {
 # jump to dotfiles (resolved from the real location of this file)
 alias dotfiles="cd ${${(%):-%x}:A:h:h}"
 
+# ntfy admin CLI with the host's config, run as the service user
+if [[ -f /etc/ntfy/gwaihir.yml ]]; then
+  ntfyadm() { sudo -u ntfy env NTFY_CONFIG_FILE=/etc/ntfy/gwaihir.yml ntfy "$@"; }
+fi
+
 # weather
 alias wroclaw="curl wttr.in/wroclaw"
 alias przemysl="curl wttr.in/przemysl"
